@@ -25,7 +25,7 @@ const addMovieRecord = async (req, res) => {
     const movieData = JSON.parse(req.body.movieData);
 
     const findDuplicate = await findSingleMovie({
-      name: movieData.name,
+      name: { $regex: new RegExp(movieData.name, "i") },
       is_deleted: false,
       deletedAt: null,
     });
@@ -108,7 +108,10 @@ const updateMovieRecord = async (req, res) => {
     if (movieData) {
       movieData = JSON.parse(movieData);
       delete condition._id;
-      getRecord = await findSingleMovie({ ...condition, name: movieData.name });
+      getRecord = await findSingleMovie({
+        ...condition,
+        name: { $regex: new RegExp(movieData.name, "i") },
+      });
       if (getRecord) {
         return Error(res, duplicateRecord, 404);
       }

@@ -15,4 +15,4 @@ global.imageRequiredd = "Image is required";
 global.summaryRequiredd = "Summary is required";
 global.whiteSpacePrevent = "Only white spaces are not allowed";
 global.minLengthPrevent = "Summary minimum length should be 5 chars long";
-global.maxLengthPrevent = "Summary maximum length should be 50 chars long";
+global.maxLengthPrevent = "Summary maximum length should be 200 chars long";

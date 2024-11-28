@@ -21,7 +21,7 @@ const movieSchema = new mongoose.Schema(
       type: String,
       required: [true, summaryRequiredd],
       minLength: [5, minLengthPrevent],
-      maxLength: [50, maxLengthPrevent],
+      maxLength: [200, maxLengthPrevent],
       validate: {
         validator: function (value) {
           return !/^\s*$/.test(value);
